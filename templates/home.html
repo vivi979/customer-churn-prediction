@@ -3,32 +3,41 @@
 
 <head>
     <title>Customer Churn System</title>
-
-    <!-- Link CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <div class="container home-container">
+    <!-- HEADER -->
+    <header class="header">
+        <h2 class="logo">ChurnPredict</h2>
 
-        <h1 class="home-title">Customer Churn Prediction System</h1>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="https://app.powerbi.com/groups/me/reports/c858b430-b15e-4f44-9406-6c4b2d885dd4/6f19ea2d2c5e3c2eb8b0?experience=power-bi"
+                target="_blank">Dashboard</a>
+        </nav>
+    </header>
 
-        <p>Predict customer churn and analyze insights using machine learning</p>
+    <!-- MAIN SECTION -->
+    <section class="hero-section">
 
-        <div class="home-buttons">
+        <div class="overlay">
+            <h1>Predict Customer Churn</h1>
+            <p>Analyze insights and reduce customer loss using machine learning</p>
 
             <a href="/login">
-                <button>Login</button>
+                <button>Get Started</button>
             </a>
-
-            <a href="/dashboard_view">
-                <button>View Dashboard</button>
-            </a>
-
         </div>
 
-    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Customer Churn Prediction System</p>
+    </footer>
 
 </body>
 

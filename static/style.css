@@ -1,104 +1,251 @@
 body {
-    min-height: 100vh;
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: #f4f7fb;
     color: #1c1c1c;
 }
 
-.container {
-    width: min(580px, 95%);
-    padding: 30px 28px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.16);
-    text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-h2 {
-    margin: 0 0 24px;
-    font-size: clamp(1.55rem, 2.4vw, 2rem);
-    letter-spacing: 0.02em;
+button,
+input,
+select {
+    font-family: inherit;
 }
 
-form {
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0d1f47;
+    color: white;
+    padding: 18px 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
     gap: 20px;
 }
 
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 16px 18px;
-    align-items: center;
-}
-
-label {
-    justify-self: end;
-    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-    color: #333;
-}
-
-input,
-select {
-    width: 100%;
-    min-height: 46px;
-    padding: 0 14px;
-    border: 1px solid rgba(31, 142, 255, 0.24);
-    border-radius: 12px;
-    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-    background: #f9fbff;
-    color: #1f2937;
-}
-
-select {
-    appearance: none;
-}
-
-button {
-    width: 100%;
-    padding: 14px 18px;
-    border: none;
-    border-radius: 14px;
-    font-size: clamp(1rem, 1.2vw, 1.1rem);
-    font-weight: 600;
-    background: linear-gradient(135deg, #2d8cff, #00d0ff);
+.nav-links a {
     color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #d7e5ff;
+}
+
+.hero-section {
+    min-height: calc(100vh - 84px);
+    margin-top: 84px;
+    background: linear-gradient(rgba(7, 21, 55, 0.48),
+            rgba(7, 21, 55, 0.48)),
+        url('projectimg.png') no-repeat center center/cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.overlay {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.44);
+    padding: 42px 36px;
+    border-radius: 24px;
+    max-width: 860px;
+    width: min(100%, 860px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.28);
+}
+
+.overlay h1 {
+    font-size: clamp(2.8rem, 4vw, 4.4rem);
+    margin: 0 0 16px;
+}
+
+.overlay p {
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    margin: 0 0 28px;
+    line-height: 1.6;
+}
+
+.overlay button {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    background: #00d0ff;
+    color: #091620;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transition: transform 0.18s ease, filter 0.18s ease;
 }
 
-button:hover {
+.overlay button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 14px 28px rgba(45, 140, 255, 0.22);
+    filter: brightness(1.05);
 }
 
-@media (max-width: 620px) {
-    .form-grid {
-        grid-template-columns: 1fr;
+.footer {
+    background: #ffffff;
+    color: #4a5568;
+    text-align: center;
+    padding: 20px 15px;
+    border-top: 1px solid #e6ecf8;
+}
+
+@media (max-width: 860px) {
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px 24px;
     }
 
-    label {
-        justify-self: start;
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-section {
+        min-height: calc(100vh - 140px);
+    }
+
+    .overlay {
+        padding: 32px 24px;
     }
 }
 
-/* Home Page Styling */
-.home-container {
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #eef3fb;
+}
+
+.login-container {
+    width: min(420px, 95%);
+    padding: 36px 32px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.12);
     text-align: center;
 }
 
-.home-title {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+.login-container h2 {
+    margin: 0 0 24px;
+    font-size: 2rem;
 }
 
-.home-buttons {
+.login-container form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #f8fafc;
+}
+
+.login-container button {
+    padding: 14px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #0d1f47;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.login-container button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
+.dashboard-hero {
+    min-height: calc(100vh - 84px);
+    margin-top: 84px;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.28),
+            rgba(0, 0, 0, 0.28)
+        ),
+        url('dashboardimg.png') no-repeat center center/cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dashboard-overlay {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.48);
+    padding: 36px 30px;
+    border-radius: 24px;
+    max-width: 760px;
+    width: min(100%, 760px);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.26);
+}
+
+.dashboard-overlay h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.4rem, 3.6vw, 3.8rem);
+}
+
+.dashboard-overlay p {
+    margin: 0;
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.65;
+}
+
+.dashboard-action {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px 50px;
+    background: #f4f7fb;
+}
+
+.dashboard-action a button {
+    padding: 16px 34px;
+    border: none;
+    border-radius: 14px;
+    background: #0d1f47;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.dashboard-action a button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
 }

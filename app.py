@@ -22,6 +22,10 @@ def login_page():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/dashboard_view')
+def dashboard_view():
+    return render_template('dashboard_view.html')
+
 @app.route('/login', methods=['POST'])
 def login():
     return redirect('/dashboard')
