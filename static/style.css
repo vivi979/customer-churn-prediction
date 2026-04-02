@@ -189,63 +189,12 @@ select {
     filter: brightness(1.05);
 }
 
-.dashboard-hero {
-    min-height: calc(100vh - 84px);
-    margin-top: 84px;
-    background: linear-gradient(
-            rgba(0, 0, 0, 0.28),
-            rgba(0, 0, 0, 0.28)
-        ),
-        url('dashboardimg.png') no-repeat center center/cover;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.dashboard-overlay {
+.dashboard-container {
+    margin-top: 100px;
     text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.48);
-    padding: 36px 30px;
-    border-radius: 24px;
-    max-width: 760px;
-    width: min(100%, 760px);
-    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.26);
 }
 
-.dashboard-overlay h1 {
-    margin: 0 0 16px;
-    font-size: clamp(2.4rem, 3.6vw, 3.8rem);
-}
-
-.dashboard-overlay p {
-    margin: 0;
-    font-size: clamp(1rem, 1.2vw, 1.15rem);
-    line-height: 1.65;
-}
-
-.dashboard-action {
-    display: flex;
-    justify-content: center;
-    padding: 30px 20px 50px;
-    background: #f4f7fb;
-}
-
-.dashboard-action a button {
-    padding: 16px 34px;
-    border: none;
-    border-radius: 14px;
-    background: #0d1f47;
-    color: white;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.18s ease, filter 0.18s ease;
-}
-
-.dashboard-action a button:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.08);
+.dashboard-img {
+    width: 90%;
+    border-radius: 10px;
 }
