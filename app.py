@@ -36,10 +36,7 @@ def predict():
         if col in df.columns:
             df[col] = df[col].map({'Yes': 1, 'No': 0, '1':1, '0':0})
 
-    # encoding
     df = pd.get_dummies(df)
-
-    # align columns
     df = df.reindex(columns=cols, fill_value=0)
 
     prediction = model.predict_proba(df)[0][1]
