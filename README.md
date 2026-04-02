@@ -45,6 +45,7 @@ CUST_CHURN/
 │── app.py
 │── churn_model.json
 │── columns.pkl
+|── requirements.txt
 │
 ├── templates/
 │   ├── login.html
