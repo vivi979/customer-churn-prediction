@@ -86,3 +86,19 @@ button:hover {
         justify-self: start;
     }
 }
+
+/* Home Page Styling */
+.home-container {
+    text-align: center;
+}
+
+.home-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
