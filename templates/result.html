@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
+    <div class="header">
+        <div class="logo">Customer Churn Predictor</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+        </div>
+    </div>
 
-    <h2>Prediction Result</h2>
-
-    <p>Churn Probability: {{ prediction }}</p>
-
-    {% if prediction > 0.5 %}
-    <p style="color:red;">High Risk Customer ⚠️</p>
-    {% else %}
-    <p style="color:green;">Low Risk Customer ✅</p>
-    {% endif %}
-
-    <a href="/dashboard">Check Another</a>
-
+    <div class="result-page">
+        <div class="result-container">
+            <h2>Prediction Result</h2>
+            <div class="result-card">
+                <div class="probability-display">
+                    <h3>Churn Probability</h3>
+                    <div class="probability-value">{{ "%.2f"|format(prediction * 100) }}%</div>
+                </div>
+                <div class="risk-indicator">
+                    {% if prediction > 0.5 %}
+                    <div class="high-risk">
+                        <span class="risk-icon">⚠️</span>
+                        <span class="risk-text">High Risk Customer</span>
+                    </div>
+                    {% else %}
+                    <div class="low-risk">
+                        <span class="risk-icon">✅</span>
+                        <span class="risk-text">Low Risk Customer</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="action-buttons">
+                <a href="/dashboard" class="btn-primary">Check Another Customer</a>
+                <a href="/" class="btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
