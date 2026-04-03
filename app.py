@@ -62,7 +62,7 @@ def register():
 
     try:
         cursor.execute("""
-        INSERT INTO employees (name, email, password, role)
+        INSERT INTO employees (ename, email, password, role)
         VALUES (?, ?, ?, ?)
         """, (name, email, password, role))
 
@@ -71,9 +71,12 @@ def register():
 
         return redirect('/login')
 
-    except:
+    except sqlite3.IntegrityError:
         conn.close()
         return "Email already exists ❌"
+    except Exception as e:
+        conn.close()
+        return f"Registration failed: {str(e)}"
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -102,10 +105,10 @@ def predict():
     # Save customer data
     cursor.execute("""
     INSERT INTO customers 
-    (name, tenure, monthly_charges, contract, payment_method, internet_service, has_internet, tech_support, online_security)
+    (cname, tenure, monthly_charges, contract, payment_method, internet_service, has_internet, tech_support, online_security)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
-        data.get('name'),
+        data.get('customerName'),
         int(data.get('tenure')),
         float(data.get('MonthlyCharges')),
         data.get('Contract'),
@@ -123,6 +126,12 @@ def predict():
     INSERT INTO predictions (customer_id, prediction_result, churn_probability)
     VALUES (?, ?, ?)
     """, (customer_id, final_result, float(prediction)))
+
+    # Save log
+    cursor.execute("""
+    INSERT INTO logs (employee_id, action)
+    VALUES (?, ?)
+    """, (1, "Predicted churn for customer: " + data.get('customerName')))
 
     conn.commit()
     conn.close()

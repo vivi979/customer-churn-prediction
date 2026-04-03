@@ -7,7 +7,7 @@ cursor = conn.cursor()
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS customers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    cname TEXT,
     tenure INTEGER,
     monthly_charges REAL,
     contract TEXT,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS predictions (
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS employees (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
+    ename TEXT,
     email TEXT UNIQUE,
     password TEXT,
     role TEXT DEFAULT 'analyst',
