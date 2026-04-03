@@ -46,11 +46,16 @@ CUST_CHURN/
 │── churn_model.json
 │── columns.pkl
 |── requirements.txt
+├── database.py
+├── churn.db
 │
 ├── templates/
+|   ├── home.html
 │   ├── login.html
+|   |── register.html
 │   ├── dashboard.html
-│   ├── result.html
+|   |── dashboard_view.html
+|   |── result.html
 │
 ├── static/
 │   └── style.css
