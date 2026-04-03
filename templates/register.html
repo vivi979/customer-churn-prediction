@@ -2,23 +2,21 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body class="login-page">
 
     <div class="login-container">
-        <h2>Employee Login</h2>
-        <form method="POST" action="/login">
+        <h2>Employee Register</h2>
+        <form method="POST" action="/register">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="text" name="role" placeholder="Enter Role (e.g., Analyst, Manager)" required>
             <input type="email" name="email" placeholder="Enter Email" required>
             <input type="password" name="password" placeholder="Enter Password" required>
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
-        <p>Don't have an account? <a href="/register">Register</a></p>
-        {% if error %}
-        <p style="color:red;">{{ error }}</p>
-        {% endif %}
     </div>
 
 </body>

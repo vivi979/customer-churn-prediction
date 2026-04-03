@@ -24,6 +24,12 @@
 
             <form action="/predict" method="POST">
                 <div class="form-grid">
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="customerName">Customer Name</label>
+                        <input id="customerName" type="text" name="customerName" placeholder="Enter customer name"
+                            required>
+                    </div>
+
                     <div class="form-group">
                         <label for="tenure">Tenure (months)</label>
                         <input id="tenure" type="number" name="tenure" placeholder="e.g., 12" required>
