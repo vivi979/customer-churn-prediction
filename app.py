@@ -75,6 +75,10 @@ def register():
         conn.close()
         return "Email already exists ❌"
 
+@app.route('/logout')
+def logout():
+    return redirect('/')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.form.to_dict()
