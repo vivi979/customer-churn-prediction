@@ -71,12 +71,9 @@ def register():
 
         return redirect('/login')
 
-    except sqlite3.IntegrityError:
+    except:
         conn.close()
         return "Email already exists ❌"
-    except Exception as e:
-        conn.close()
-        return f"Registration failed: {str(e)}"
 
 @app.route('/predict', methods=['POST'])
 def predict():
