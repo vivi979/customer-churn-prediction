@@ -19,6 +19,13 @@
         </form>
     </div>
 
+    <div id="errorModal" class="modal{% if error %} show{% endif %}">
+        <div class="modal-content">
+            <p>{{ error }}</p>
+            <button type="button" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
     <script>
         function validatePassword() {
             const password = document.querySelector('input[name="password"]').value;
@@ -33,7 +40,9 @@
             }
             return true;
         }
-    </script>
+        function closeModal() {
+            document.getElementById('errorModal').classList.remove('show');
+        }    </script>
 
 </body>
 

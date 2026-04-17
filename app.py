@@ -60,6 +60,11 @@ def register():
     conn = sqlite3.connect('churn.db')
     cursor = conn.cursor()
 
+    cursor.execute("SELECT 1 FROM employees WHERE email = ?", (email,))
+    if cursor.fetchone():
+        conn.close()
+        return render_template('register.html', error="Email already exists ❌")
+
     try:
         cursor.execute("""
         INSERT INTO employees (ename, email, password, role)
@@ -71,9 +76,9 @@ def register():
 
         return redirect('/login')
 
-    except:
+    except Exception:
         conn.close()
-        return "Email already exists ❌"
+        return render_template('register.html', error="An unexpected error occurred. Please try again.")
 
 @app.route('/logout')
 def logout():

@@ -193,6 +193,52 @@ select {
     filter: brightness(1.05);
 }
 
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1200;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: min(420px, 100%);
+    background: white;
+    border-radius: 18px;
+    padding: 28px 26px;
+    text-align: center;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.modal-content p {
+    margin: 0 0 20px;
+    color: #c53030;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.modal-content button {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 10px;
+    background: #0d1f47;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.modal-content button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+}
+
 .dashboard-container {
     position: fixed;
     top: 84px;
