@@ -3,7 +3,7 @@ import sqlite3
 conn = sqlite3.connect('churn.db')
 cursor = conn.cursor()
 
-# 1. Customers table
+# Customers table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS customers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS customers (
 )
 """)
 
-# 2. Predictions table
+# Predictions table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS predictions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS predictions (
 )
 """)
 
-# 3. Employees table
+# Employees table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS employees (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS employees (
 )
 """)
 
-# 4. Logs table
+# Logs table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS logs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 import pickle
 import pandas as pd
 import xgboost as xgb
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = 'replace-with-a-secure-random-key'
 
 model = xgb.XGBClassifier()
 model.load_model("churn_model.json")
@@ -46,6 +47,8 @@ def login():
     conn.close()
 
     if user:
+        session['employee_id'] = user[0]
+        session['employee_name'] = user[1]
         return redirect('/dashboard')
     else:
         return render_template('login.html', error="Invalid email or password ❌")
@@ -82,6 +85,8 @@ def register():
 
 @app.route('/logout')
 def logout():
+    session.pop('employee_id', None)
+    session.pop('employee_name', None)
     return redirect('/')
 
 @app.route('/predict', methods=['POST'])
@@ -134,10 +139,11 @@ def predict():
     """, (customer_id, final_result, float(prediction)))
 
     # Save log
+    employee_id = session.get('employee_id')
     cursor.execute("""
     INSERT INTO logs (employee_id, action)
     VALUES (?, ?)
-    """, (1, "Predicted churn for customer: " + data.get('customerName')))
+    """, (employee_id, "Predicted churn for customer: " + data.get('customerName')))
 
     conn.commit()
     conn.close()
